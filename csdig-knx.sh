@@ -55,8 +55,8 @@ fi
 if [ -z "$DEBUG" ]
 then
 	$SHODAN download "$SEARCH" "$DATAPATH/$SEARCH"
+	$SHODAN convert "$DATAPATH/$SEARCH.json.gz" csv
 fi
-$SHODAN convert "$DATAPATH/$SEARCH.json.gz" csv
 HEIGHT=`$CSVTOOL height "$DATAPATH/$SEARCH.csv"`
 $CSVTOOL namedcol data,ip_str,port,transport "$DATAPATH/$SEARCH.csv" > "$DATAPATH/$SEARCH-part.csv"
 WIDTH=`$CSVTOOL width "$DATAPATH/$SEARCH-part.csv"`

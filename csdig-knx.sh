@@ -129,7 +129,7 @@ do
 				echo "$TIMESTAMP Checking for KNX TP device on $group.$line.$m via KNXnet/IP controller on $ip_str:$port"
 				# NAT mode is currently not working.  See:
 				# <https://github.com/uwedisch/knxmap/issues/2>
-				RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -t -p $port --nat scan $ip_str $group.$line.$m --bus-info 2>&1`
+				RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -q -p $port --nat scan $ip_str $group.$line.$m --bus-info 2>&1`
 				if [ -n "$DEBUG" ]
 				then
 					echo "---------- Debug start ----------"

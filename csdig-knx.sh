@@ -79,9 +79,20 @@ do
 	#
 	if [ $transport = "udp" ]
 	then
+		#
+		# Try to ping, if successful, the check KNXnet/IP device.
+		#
 		echo ""
-		echo "Checking for KNXnet/IP controller on $ip_str:$port"
-		RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -q -p $port --nat scan $ip_str`
+#		TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+#		echo "$TIMESTAMP Checking if ping to $ip_str is successful"
+#		RESULT=`ping -q -c 1 $ip_str|grep "0 received"`
+#		if [ -n "$RESULT" ]
+#		then
+#			continue
+#		fi
+		TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+		echo "$TIMESTAMP Checking for KNXnet/IP controller on $ip_str:$port"
+		RESULT=`$TIMEOUT --foreground $timeout nice -n -20 $KNXMAP -q -p $port --nat scan $ip_str 2>&1`
 		
 		#
 		# Use KNX bus address to loop thru KNX line if KNX medium is
@@ -114,13 +125,18 @@ do
 			fi
 			for (( m=$device_start; m<=255; m++ ))
 			do
-				echo "Checking for KNX TP device on $group.$line.$m"
-				# This is currently not working in a Bash
-				# script for whatever reason.  Within plain
-				# Bash it's working fine.  See this issue:
+				TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+				echo "$TIMESTAMP Checking for KNX TP device on $group.$line.$m via KNXnet/IP controller on $ip_str:$port"
+				# NAT mode is currently not working.  See:
 				# <https://github.com/uwedisch/knxmap/issues/2>
-				RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -q -p $port --nat scan $ip_str $group.$line.$m --bus-info --omit-configuration-reads`
-				echo "$RESULT"
+				RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -t -p $port --nat scan $ip_str $group.$line.$m --bus-info 2>&1`
+				if [ -n "$DEBUG" ]
+				then
+					echo "---------- Debug start ----------"
+					echo "$RESULT"
+					echo "----------  Debug end  ----------"
+					echo ""
+				fi
 				# Keep care: newline and 6 spaces at the end of
 				# the match string.
 				bus_device=${RESULT##*Bus Devices: 

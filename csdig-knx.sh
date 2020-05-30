@@ -24,6 +24,16 @@ echo "    under certain conditions; type 'show c' for details."
 echo ""
 
 #
+# Check for possible search string other than 'knx'.
+#
+if [ -n "$1" ]
+then
+	SEARCH="$1"
+else
+	SEARCH='knx'
+fi
+
+#
 # Source config file.
 #
 if [ -e ./csdig.conf ]
@@ -40,16 +50,6 @@ then
 fi
 
 #
-# Check for possible search string other than 'knx'.
-#
-if [ -n "$1" ]
-then
-	SEARCH="$1"
-else
-	SEARCH='knx'
-fi
-
-#
 # If not debugging mode use current search results.
 #
 if [ -z "$DEBUG" ]
@@ -60,6 +60,11 @@ fi
 HEIGHT=`$CSVTOOL height "$DATAPATH/$SEARCH.csv"`
 $CSVTOOL namedcol data,ip_str,port,transport "$DATAPATH/$SEARCH.csv" > "$DATAPATH/$SEARCH-part.csv"
 WIDTH=`$CSVTOOL width "$DATAPATH/$SEARCH-part.csv"`
+
+#
+# Create new device list and add the header to the it.
+#
+echo "Timestamp;Controller;Devices" > "$DEVICELIST"
 
 #
 # Loop thru search results.
@@ -100,6 +105,10 @@ do
 			then
 				echo ""
 			fi
+			#
+			# Add controller to the device list.
+			#
+			echo -n "$TIMESTAMP;$ip_str:$port;" >> "$DEVICELIST"
 			address=${RESULT##*KNX Bus Address: }
 			# Keep care: newline at the end of the match string.
 			address=${address%%
@@ -158,6 +167,11 @@ do
 						TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
 						echo -e "\n$TIMESTAMP Tunnel connection timed out at KNXnet/IP controller on $ip_str:$port after round $m"
 					fi
+					#
+					# Output additional line break to
+					# device list on time out.
+					#
+					echo "" >> "$DEVICELIST"
 					break
 				fi
 				# Keep care: newline and 6 spaces at the end of
@@ -178,6 +192,18 @@ do
 						then
 							echo -n " $bus_device "
 						fi
+					fi
+					#
+					# Add device to the device list.
+					#
+					echo -n "$bus_device," >> "$DEVICELIST"
+					#
+                                        # Output additional line break to
+                                        # device list on last round.
+                                        #
+					if [ $m -eq 255 ]
+					then
+						echo "" >> "$DEVICELIST"
 					fi
 				fi
 			done

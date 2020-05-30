@@ -130,7 +130,7 @@ do
 					then
 						echo "."
 					else
-						echo -n "."
+						echo -n ". Done."
 					fi
 				fi
 				# State machine isn't perfect.  See:
@@ -143,9 +143,13 @@ do
 					echo "----------  Debug end  ----------"
 					echo ""
 				fi
-				# Check if there was a connection timeout in
+				# Check if there was a connection time out in
 				# tunnel.  If so, skip over to next KNXnet/IP
 				# device.
+				# TODO: Don't check for first time out, second
+				# time out is resulting in dead lock with
+				# knxmap.  Check for two time outs within each
+				# round.
 				ConnectionTimeout=`echo "$RESULT"|grep 'Tunnel connection timed out'`
 				if [ -n "$ConnectionTimeout" ]
 				then

@@ -128,9 +128,9 @@ do
 				else
 					if [ $m -eq 255 ]
 					then
-						echo "."
+						echo ".  Done."
 					else
-						echo -n ". Done."
+						echo -n "."
 					fi
 				fi
 				# State machine isn't perfect.  See:

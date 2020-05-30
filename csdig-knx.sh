@@ -94,6 +94,12 @@ do
 *}
 		if [ "$medium" = "KNX TP" ]
 		then
+			TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+			echo -n "$TIMESTAMP Found a KNXnet/IP controller on $ip_str:$port, checking for KNX TP devices"
+			if [ $DEBUG -ge 5 ]
+			then
+				echo ""
+			fi
 			address=${RESULT##*KNX Bus Address: }
 			# Keep care: newline at the end of the match string.
 			address=${address%%
@@ -115,11 +121,21 @@ do
 			fi
 			for (( m=$device_start; m<=255; m++ ))
 			do
-				TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
-				echo "$TIMESTAMP Checking for KNX TP device on $group.$line.$m via KNXnet/IP controller on $ip_str:$port"
+				if [ $DEBUG -ge 5 ]
+				then
+					TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+					echo "$TIMESTAMP Checking for KNX TP device on $group.$line.$m via KNXnet/IP controller on $ip_str:$port"
+				else
+					if [ $m -eq 255 ]
+					then
+						echo "."
+					else
+						echo -n "."
+					fi
+				fi
 				# State machine isn't perfect.  See:
 				# <https://github.com/uwedisch/knxmap/issues/2>
-				RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -q -p $port --nat scan $ip_str $group.$line.$m --bus-info 2>&1`
+				RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -q -p $port --nat scan $ip_str $group.$line.$m 2>&1`
 				if [ $DEBUG -ge 9 ]
 				then
 					echo "---------- Debug start ----------"
@@ -133,6 +149,11 @@ do
 				ConnectionTimeout=`echo "$RESULT"|grep 'Tunnel connection timed out'`
 				if [ -n "$ConnectionTimeout" ]
 				then
+					if [ $DEBUG -ge 1 ]
+					then
+						TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+						echo -e "\n$TIMESTAMP Tunnel connection timed out at KNXnet/IP controller on $ip_str:$port after round $m"
+					fi
 					break
 				fi
 				# Keep care: newline and 6 spaces at the end of
@@ -145,7 +166,15 @@ do
 *}
 				if [ -n "$bus_device" ]
 				then
-					echo -e "\tKNX TP device $bus_device found"
+					if [ $DEBUG -ge 5 ] || [ -z "$DEBUG" ]
+					then
+						echo -e "\tKNX TP device $bus_device found"
+					else
+						if [ $DEBUG -ge 1 ]
+						then
+							echo -n " $bus_device "
+						fi
+					fi
 				fi
 			done
 		fi

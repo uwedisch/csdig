@@ -79,20 +79,10 @@ do
 	#
 	if [ $transport = "udp" ]
 	then
-		#
-		# Try to ping, if successful, the check KNXnet/IP device.
-		#
 		echo ""
-#		TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
-#		echo "$TIMESTAMP Checking if ping to $ip_str is successful"
-#		RESULT=`ping -q -c 1 $ip_str|grep "0 received"`
-#		if [ -n "$RESULT" ]
-#		then
-#			continue
-#		fi
 		TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
 		echo "$TIMESTAMP Checking for KNXnet/IP controller on $ip_str:$port"
-		RESULT=`$TIMEOUT --foreground $timeout nice -n -20 $KNXMAP -q -p $port --nat scan $ip_str 2>&1`
+		RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -q -p $port --nat scan $ip_str 2>&1`
 		
 		#
 		# Use KNX bus address to loop thru KNX line if KNX medium is
@@ -127,15 +117,23 @@ do
 			do
 				TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
 				echo "$TIMESTAMP Checking for KNX TP device on $group.$line.$m via KNXnet/IP controller on $ip_str:$port"
-				# NAT mode is currently not working.  See:
+				# State machine isn't perfect.  See:
 				# <https://github.com/uwedisch/knxmap/issues/2>
 				RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -q -p $port --nat scan $ip_str $group.$line.$m --bus-info 2>&1`
-				if [ -n "$DEBUG" ]
+				if [ $DEBUG -ge 9 ]
 				then
 					echo "---------- Debug start ----------"
 					echo "$RESULT"
 					echo "----------  Debug end  ----------"
 					echo ""
+				fi
+				# Check if there was a connection timeout in
+				# tunnel.  If so, skip over to next KNXnet/IP
+				# device.
+				ConnectionTimeout=`echo "$RESULT"|grep 'Tunnel connection timed out'`
+				if [ -n "$ConnectionTimeout" ]
+				then
+					break
 				fi
 				# Keep care: newline and 6 spaces at the end of
 				# the match string.

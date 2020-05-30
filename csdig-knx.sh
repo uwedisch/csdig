@@ -197,14 +197,14 @@ do
 					# Add device to the device list.
 					#
 					echo -n "$bus_device," >> "$DEVICELIST"
-					#
-                                        # Output additional line break to
-                                        # device list on last round.
-                                        #
-					if [ $m -eq 255 ]
-					then
-						echo "" >> "$DEVICELIST"
-					fi
+				fi
+				#
+                                # Output additional line break to
+                                # device list on last round.
+                                #
+				if [ $m -eq 255 ]
+				then
+					echo "" >> "$DEVICELIST"
 				fi
 			done
 		fi

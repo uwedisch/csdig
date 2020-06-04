@@ -142,9 +142,10 @@ do
 						echo -n "."
 					fi
 				fi
-				# State machine isn't perfect.  See:
+				# Also retrieve the bus-info on each device.
+				# But, state machine isn't perfect.  See:
 				# <https://github.com/uwedisch/knxmap/issues/2>
-				RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -q -p $port --nat scan $ip_str $group.$line.$m 2>&1`
+				RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -q -p $port --nat scan $ip_str $group.$line.$m --bus-info 2>&1`
 				if [ $DEBUG -ge 9 ]
 				then
 					echo "---------- Debug start ----------"
@@ -152,9 +153,19 @@ do
 					echo "----------  Debug end  ----------"
 					echo ""
 				fi
+				# Check if there was a connection time out in
+				# tunnel.  If so, log this event.
+				ConnectionTimeout=`echo "$RESULT"|grep 'Tunnel connection timed out'`
+				if [ -n "$ConnectionTimeout" ]
+				then
+					if [ $DEBUG -ge 1 ]
+					then
+						TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+						echo -e "\n$TIMESTAMP Tunnel connection timed out at KNXnet/IP controller on $ip_str:$port after round $m"
+					fi
+				fi
 				# Check if there was a unexpected diconnect
-				# request.  If so, skip over to next KNXnet/IP
-				# device.
+				# request.  If so, log this event also.
 				DisconnectRequest=`echo "$RESULT"|grep 'Received unexpected tunnel disconnect request'`
 				if [ -n "$DisconnectRequest" ]
 				then
@@ -163,12 +174,6 @@ do
 						TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
 						echo -e "\n$TIMESTAMP Unexpected tunnel disconnect request received from KNXnet/IP controller on $ip_str:$port while scanning target device $group.$line.$m"
 					fi
-					#
-					# Output additional line break to
-					# device list on time out.
-					#
-					echo "" >> "$DEVICELIST"
-					break
 				fi
 				# Keep care: newline and 6 spaces at the end of
 				# the match string.

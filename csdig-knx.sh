@@ -179,10 +179,7 @@ do
 				# the match string.
 				bus_device=${RESULT##*Bus Devices: 
       }
-				# Keep care: newline at the end of the match
-				# string.
-				bus_device=${bus_device%%
-*}
+				bus_device=${bus_device%%:*}
 				if [ -n "$bus_device" ]
 				then
 					if [ $DEBUG -ge 5 ] || [ -z "$DEBUG" ]

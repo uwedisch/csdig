@@ -48,6 +48,7 @@ if [ -e ~/csdig.conf ]
 then
 	. ~/csdig.conf
 fi
+cd "$KNXMAPPATH"
 
 #
 # If not debugging mode use current search results.
@@ -179,6 +180,8 @@ do
 				# the match string.
 				bus_device=${RESULT##*Bus Devices: 
       }
+				bus_device=${bus_device%%
+*}
 				bus_device=${bus_device%%:*}
 				if [ -n "$bus_device" ]
 				then

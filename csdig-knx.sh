@@ -100,6 +100,10 @@ do
 *}
 		if [ "$medium" = "KNX TP" ]
 		then
+			#
+			# Write the controller output to specific text file.
+			#
+			echo -n "$ip_str:$port $RESULT" > "$DATAPATH/$SEARCH.$ip_str.$port.txt"
 			TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
 			echo -n "$TIMESTAMP Found a KNXnet/IP controller on $ip_str:$port, checking for KNX TP devices"
 			if [ $DEBUG -ge 5 ]
@@ -180,6 +184,9 @@ do
 				# the match string.
 				bus_device=${RESULT##*Bus Devices: 
       }
+				CONTENT=`echo -n "$bus_device"`
+				# Keep care: newline at the end of the match
+				# string.
 				bus_device=${bus_device%%
 *}
 				bus_device=${bus_device%%:*}
@@ -198,6 +205,11 @@ do
 					# Add device to the device list.
 					#
 					echo -n "$bus_device," >> "$DEVICELIST"
+					#
+					# Write the device output to specific
+					# text file.
+					#
+					echo -n "$ip_str:$port $CONTENT" > "$DATAPATH/$SEARCH.$ip_str.$port.$bus_device.txt"
 				fi
 				#
                                 # Output additional line break to

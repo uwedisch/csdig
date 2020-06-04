@@ -152,20 +152,16 @@ do
 					echo "----------  Debug end  ----------"
 					echo ""
 				fi
-				# Check if there was a connection time out in
-				# tunnel.  If so, skip over to next KNXnet/IP
+				# Check if there was a unexpected diconnect
+				# request.  If so, skip over to next KNXnet/IP
 				# device.
-				# TODO: Don't check for first time out, second
-				# time out is resulting in dead lock with
-				# knxmap.  Check for two time outs within each
-				# round.
-				ConnectionTimeout=`echo "$RESULT"|grep 'Tunnel connection timed out'`
-				if [ -n "$ConnectionTimeout" ]
+				DisconnectRequest=`echo "$RESULT"|grep 'Received unexpected tunnel disconnect request'`
+				if [ -n "$DisconnectRequest" ]
 				then
 					if [ $DEBUG -ge 1 ]
 					then
 						TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
-						echo -e "\n$TIMESTAMP Tunnel connection timed out at KNXnet/IP controller on $ip_str:$port after round $m"
+						echo -e "\n$TIMESTAMP Unexpected tunnel disconnect request received from KNXnet/IP controller on $ip_str:$port while scanning target device $group.$line.$m"
 					fi
 					#
 					# Output additional line break to

@@ -1,7 +1,7 @@
 # csdig
 Control Systems Digger digs into data found on Shodan.
 
-Currently scanning via KNXnet/IP (Tunneling) is implemented. See **csdig-knx**.
+Currently scanning via KNXnet/IP (Tunneling) is implemented. See **csdig-knx**.  Scanning with csdig-knx is much more robust than scanning with KNXmap itself.
 
 ## csdig-knx
 csdig-knx is a Bash script: <code>csdig.sh</code>.

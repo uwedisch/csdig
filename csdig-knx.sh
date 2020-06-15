@@ -1,4 +1,45 @@
-                    GNU GENERAL PUBLIC LICENSE
+#!/bin/bash
+#
+#   csdig-knx - Control Systems Digger (KNX) digs into data found on Shodan.
+#   Copyright (C) 2020  Uwe Disch
+#
+#   This program is free software: you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation, either version 3 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+echo ""
+echo "    csdig  Copyright (C) 2020  Uwe Disch"
+echo "    This program comes with ABSOLUTELY NO WARRANTY; for details type '-w'."
+echo "    This is free software, and you are welcome to redistribute it"
+echo "    under certain conditions; type '-c' for details."
+echo ""
+
+#
+# Function definitions.
+function warranty {
+	echo 'Disclaimer of Warranty.
+
+  THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+'
+}
+function conditions {
+	echo "                    GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -72,35 +113,35 @@ modification follow.
 
   0. Definitions.
 
-  "This License" refers to version 3 of the GNU General Public License.
+  \"This License\" refers to version 3 of the GNU General Public License.
 
-  "Copyright" also means copyright-like laws that apply to other kinds of
+  \"Copyright\" also means copyright-like laws that apply to other kinds of
 works, such as semiconductor masks.
 
-  "The Program" refers to any copyrightable work licensed under this
-License.  Each licensee is addressed as "you".  "Licensees" and
-"recipients" may be individuals or organizations.
+  \"The Program\" refers to any copyrightable work licensed under this
+License.  Each licensee is addressed as \"you\".  \"Licensees\" and
+\"recipients\" may be individuals or organizations.
 
-  To "modify" a work means to copy from or adapt all or part of the work
+  To \"modify\" a work means to copy from or adapt all or part of the work
 in a fashion requiring copyright permission, other than the making of an
-exact copy.  The resulting work is called a "modified version" of the
-earlier work or a work "based on" the earlier work.
+exact copy.  The resulting work is called a \"modified version\" of the
+earlier work or a work \"based on\" the earlier work.
 
-  A "covered work" means either the unmodified Program or a work based
+  A \"covered work\" means either the unmodified Program or a work based
 on the Program.
 
-  To "propagate" a work means to do anything with it that, without
+  To \"propagate\" a work means to do anything with it that, without
 permission, would make you directly or secondarily liable for
 infringement under applicable copyright law, except executing it on a
 computer or modifying a private copy.  Propagation includes copying,
 distribution (with or without modification), making available to the
 public, and in some countries other activities as well.
 
-  To "convey" a work means any kind of propagation that enables other
+  To \"convey\" a work means any kind of propagation that enables other
 parties to make or receive copies.  Mere interaction with a user through
 a computer network, with no transfer of a copy, is not conveying.
 
-  An interactive user interface displays "Appropriate Legal Notices"
+  An interactive user interface displays \"Appropriate Legal Notices\"
 to the extent that it includes a convenient and prominently visible
 feature that (1) displays an appropriate copyright notice, and (2)
 tells the user that there is no warranty for the work (except to the
@@ -111,27 +152,27 @@ menu, a prominent item in the list meets this criterion.
 
   1. Source Code.
 
-  The "source code" for a work means the preferred form of the work
-for making modifications to it.  "Object code" means any non-source
+  The \"source code\" for a work means the preferred form of the work
+for making modifications to it.  \"Object code\" means any non-source
 form of a work.
 
-  A "Standard Interface" means an interface that either is an official
+  A \"Standard Interface\" means an interface that either is an official
 standard defined by a recognized standards body, or, in the case of
 interfaces specified for a particular programming language, one that
 is widely used among developers working in that language.
 
-  The "System Libraries" of an executable work include anything, other
+  The \"System Libraries\" of an executable work include anything, other
 than the work as a whole, that (a) is included in the normal form of
 packaging a Major Component, but which is not part of that Major
 Component, and (b) serves only to enable use of the work with that
 Major Component, or to implement a Standard Interface for which an
 implementation is available to the public in source code form.  A
-"Major Component", in this context, means a major essential component
+\"Major Component\", in this context, means a major essential component
 (kernel, window system, and so on) of the specific operating system
 (if any) on which the executable work runs, or a compiler used to
 produce the work, or an object code interpreter used to run it.
 
-  The "Corresponding Source" for a work in object code form means all
+  The \"Corresponding Source\" for a work in object code form means all
 the source code needed to generate, install, and (for an executable
 work) run the object code and to modify the work, including scripts to
 control those activities.  However, it does not include the work's
@@ -217,7 +258,7 @@ terms of section 4, provided that you also meet all of these conditions:
     b) The work must carry prominent notices stating that it is
     released under this License and any conditions added under section
     7.  This requirement modifies the requirement in section 4 to
-    "keep intact all notices".
+    \"keep intact all notices\".
 
     c) You must license the entire work, as a whole, under this
     License to anyone who comes into possession of a copy.  This
@@ -236,7 +277,7 @@ terms of section 4, provided that you also meet all of these conditions:
 works, which are not by their nature extensions of the covered work,
 and which are not combined with it such as to form a larger program,
 in or on a volume of a storage or distribution medium, is called an
-"aggregate" if the compilation and its resulting copyright are not
+\"aggregate\" if the compilation and its resulting copyright are not
 used to limit the access or legal rights of the compilation's users
 beyond what the individual works permit.  Inclusion of a covered work
 in an aggregate does not cause this License to apply to the other
@@ -294,12 +335,12 @@ in one of these ways:
 from the Corresponding Source as a System Library, need not be
 included in conveying the object code work.
 
-  A "User Product" is either (1) a "consumer product", which means any
+  A \"User Product\" is either (1) a \"consumer product\", which means any
 tangible personal property which is normally used for personal, family,
 or household purposes, or (2) anything designed or sold for incorporation
 into a dwelling.  In determining whether a product is a consumer product,
 doubtful cases shall be resolved in favor of coverage.  For a particular
-product received by a particular user, "normally used" refers to a
+product received by a particular user, \"normally used\" refers to a
 typical or common use of that class of product, regardless of the status
 of the particular user or of the way in which the particular user
 actually uses, or expects or is expected to use, the product.  A product
@@ -307,7 +348,7 @@ is a consumer product regardless of whether the product has substantial
 commercial, industrial or non-consumer uses, unless such uses represent
 the only significant mode of use of the product.
 
-  "Installation Information" for a User Product means any methods,
+  \"Installation Information\" for a User Product means any methods,
 procedures, authorization keys, or other information required to install
 and execute modified versions of a covered work in that User Product from
 a modified version of its Corresponding Source.  The information must
@@ -342,7 +383,7 @@ unpacking, reading or copying.
 
   7. Additional Terms.
 
-  "Additional permissions" are terms that supplement the terms of this
+  \"Additional permissions\" are terms that supplement the terms of this
 License by making exceptions from one or more of its conditions.
 Additional permissions that are applicable to the entire Program shall
 be treated as though they were included in this License, to the extent
@@ -385,8 +426,8 @@ that material) supplement the terms of this License with terms:
     any liability that these contractual assumptions directly impose on
     those licensors and authors.
 
-  All other non-permissive additional terms are considered "further
-restrictions" within the meaning of section 10.  If the Program as you
+  All other non-permissive additional terms are considered \"further
+restrictions\" within the meaning of section 10.  If the Program as you
 received it, or any part of it, contains a notice stating that it is
 governed by this License along with a term that is a further
 restriction, you may remove that term.  If a license document contains
@@ -450,7 +491,7 @@ receives a license from the original licensors, to run, modify and
 propagate that work, subject to this License.  You are not responsible
 for enforcing compliance by third parties with this License.
 
-  An "entity transaction" is a transaction transferring control of an
+  An \"entity transaction\" is a transaction transferring control of an
 organization, or substantially all assets of one, or subdividing an
 organization, or merging organizations.  If propagation of a covered
 work results from an entity transaction, each party to that
@@ -470,17 +511,17 @@ sale, or importing the Program or any portion of it.
 
   11. Patents.
 
-  A "contributor" is a copyright holder who authorizes use under this
+  A \"contributor\" is a copyright holder who authorizes use under this
 License of the Program or a work on which the Program is based.  The
-work thus licensed is called the contributor's "contributor version".
+work thus licensed is called the contributor's \"contributor version\".
 
-  A contributor's "essential patent claims" are all patent claims
+  A contributor's \"essential patent claims\" are all patent claims
 owned or controlled by the contributor, whether already acquired or
 hereafter acquired, that would be infringed by some manner, permitted
 by this License, of making, using, or selling its contributor version,
 but do not include claims that would be infringed only as a
 consequence of further modification of the contributor version.  For
-purposes of this definition, "control" includes the right to grant
+purposes of this definition, \"control\" includes the right to grant
 patent sublicenses in a manner consistent with the requirements of
 this License.
 
@@ -489,10 +530,10 @@ patent license under the contributor's essential patent claims, to
 make, use, sell, offer for sale, import and otherwise run, modify and
 propagate the contents of its contributor version.
 
-  In the following three paragraphs, a "patent license" is any express
+  In the following three paragraphs, a \"patent license\" is any express
 agreement or commitment, however denominated, not to enforce a patent
 (such as an express permission to practice a patent or covenant not to
-sue for patent infringement).  To "grant" such a patent license to a
+sue for patent infringement).  To \"grant\" such a patent license to a
 party means to make such an agreement or commitment not to enforce a
 patent against the party.
 
@@ -504,7 +545,7 @@ then you must either (1) cause the Corresponding Source to be so
 available, or (2) arrange to deprive yourself of the benefit of the
 patent license for this particular work, or (3) arrange, in a manner
 consistent with the requirements of this License, to extend the patent
-license to downstream recipients.  "Knowingly relying" means you have
+license to downstream recipients.  \"Knowingly relying\" means you have
 actual knowledge that, but for the patent license, your conveying the
 covered work in a country, or your recipient's use of the covered work
 in a country, would infringe one or more identifiable patents in that
@@ -518,7 +559,7 @@ or convey a specific copy of the covered work, then the patent license
 you grant is automatically extended to all recipients of the covered
 work and works based on it.
 
-  A patent license is "discriminatory" if it does not include within
+  A patent license is \"discriminatory\" if it does not include within
 the scope of its coverage, prohibits the exercise of, or is
 conditioned on the non-exercise of one or more of the rights that are
 specifically granted under this License.  You may not convey a covered
@@ -569,7 +610,7 @@ address new problems or concerns.
 
   Each version is given a distinguishing version number.  If the
 Program specifies that a certain numbered version of the GNU General
-Public License "or any later version" applies to it, you have the
+Public License \"or any later version\" applies to it, you have the
 option of following the terms and conditions either of that numbered
 version or of any later version published by the Free Software
 Foundation.  If the Program does not specify a version number of the
@@ -590,7 +631,7 @@ later version.
 
   THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
 APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
-HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM \"AS IS\" WITHOUT WARRANTY
 OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
 THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
 PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
@@ -619,3 +660,241 @@ Program, unless a warranty or assumption of liability accompanies a
 copy of the Program in return for a fee.
 
                      END OF TERMS AND CONDITIONS
+"
+}
+function help {
+	echo "    csdig-knx.sh [-s='search'|--search='search'|-w|--warranty|-c|--conditions|-h|--help|-v|--version]"
+	echo -e "\n    The possible arguments of csdig-knx.sh are:"
+	echo -e "\t-s='search'|--search='search':"
+	echo -e "\t\tSearch on Shodan for given search string 'search'."
+	echo -e "\t-w|--warranty:"
+	echo -e "\t\tPrint the warranty statement."
+	echo -e "\t-c|--conditions:"
+	echo -e "\t\tPrint the conditions."
+	echo -e "\t-v|--version:"
+	echo -e "\t\tPrint the version number."
+	echo -e "\n    Without any parameter csdig-knx.sh uses the search string 'knx'.\n"
+}
+VERSION='0.1'
+#
+# Check for possible search string other than 'knx'.
+#
+for i in "$@"
+do
+	case $i in
+		-c|--conditions)
+			conditions
+			exit
+		;;
+		-w|--warranty)
+			warranty
+			exit
+		;;
+		-s=*|--search=*)
+			SEARCH="${i#*=}"
+		;;
+		-v|--version)
+			echo -e "\n\tcsdig-knx.sh v$VERSION\n"
+			exit
+		;;
+		-h|--help|*)
+			help
+			exit
+		;;
+	esac
+done
+if [ -z "$1" ]
+then
+	SEARCH='knx'
+fi
+
+#
+# Source the config file.
+#
+if [ -e ./csdig.conf ]
+then
+	. ./csdig.conf
+fi
+if [ -e /etc/csdig.conf ]
+then
+	. /etc/csdig.conf
+fi
+if [ -e ~/csdig.conf ]
+then
+	. ~/csdig.conf
+fi
+cd "$KNXMAPPATH"
+
+#
+# If not debugging mode use current search results.
+#
+if [ -z "$DEBUG" ]
+then
+	$SHODAN download "$SEARCH" "$DATAPATH/$SEARCH"
+	$SHODAN convert "$DATAPATH/$SEARCH.json.gz" csv
+fi
+HEIGHT=`$CSVTOOL height "$DATAPATH/$SEARCH.csv"`
+$CSVTOOL namedcol data,ip_str,port,transport "$DATAPATH/$SEARCH.csv" > "$DATAPATH/$SEARCH-part.csv"
+WIDTH=`$CSVTOOL width "$DATAPATH/$SEARCH-part.csv"`
+
+#
+# Create new device list and add the header to the it.
+#
+echo "Timestamp;Controller;Devices" > "$DEVICELIST"
+
+#
+# Loop thru search results.
+#
+for (( n=2; n<=$HEIGHT; n++ ))
+do
+	LINE=`$CSVTOOL sub $n 1 1 $WIDTH "$DATAPATH/$SEARCH-part.csv"`
+	transport=${LINE##*,}
+	port=${LINE%,*}
+	ip_str=${port%,*}
+	port=${port##*,}
+	data=${ip_str%,*}
+	ip_str=${ip_str##*,}
+	
+	#
+	# If transport is udp, then check KNXnet/IP device.
+	#
+	if [ $transport = "udp" ]
+	then
+		echo ""
+		TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+		echo "$TIMESTAMP Checking for KNXnet/IP controller on $ip_str:$port"
+		RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -q -p $port --nat scan $ip_str 2>&1`
+		
+		#
+		# Use KNX bus address to loop thru KNX line if KNX medium is
+		# KNX TP.
+		#
+		medium=${RESULT##*KNX Medium: }
+		# Keep care: newline at the end of the match string.
+		medium=${medium%%
+*}
+		if [ "$medium" = "KNX TP" ]
+		then
+			#
+			# Write the controller output to specific text file.
+			#
+			echo -n "$ip_str:$port $RESULT" > "$DATAPATH/$SEARCH.$ip_str.$port.txt"
+			TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+			echo -n "$TIMESTAMP Found a KNXnet/IP controller on $ip_str:$port, checking for KNX TP devices"
+			if [ $DEBUG -ge 5 ]
+			then
+				echo ""
+			fi
+			#
+			# Add controller to the device list.
+			#
+			echo -n "$TIMESTAMP;$ip_str:$port;" >> "$DEVICELIST"
+			address=${RESULT##*KNX Bus Address: }
+			# Keep care: newline at the end of the match string.
+			address=${address%%
+*}
+			#
+			# Splice the address into it's parts.
+			#
+			group=${address%%.*}
+			line=${address%.*}
+			line=${line#*.}
+#			device=${address##*.}
+			#
+			# Check all possible devices on that line.
+			#
+			device_start=0
+			if [[ group -eq 0 ]] && [[ line -eq 0 ]]
+			then
+				device_start=1
+			fi
+			for (( m=$device_start; m<=255; m++ ))
+			do
+				if [ $DEBUG -ge 5 ]
+				then
+					TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+					echo "$TIMESTAMP Checking for KNX TP device on $group.$line.$m via KNXnet/IP controller on $ip_str:$port"
+				else
+					if [ $m -eq 255 ]
+					then
+						echo ".  Done."
+					else
+						echo -n "."
+					fi
+				fi
+				# Also retrieve the bus-info on each device.
+				# But, state machine isn't perfect.  See:
+				# <https://github.com/uwedisch/knxmap/issues/2>
+				RESULT=`$TIMEOUT --foreground $timeout $KNXMAP -q -p $port --nat scan $ip_str $group.$line.$m --bus-info 2>&1`
+				if [ $DEBUG -ge 9 ]
+				then
+					echo "---------- Debug start ----------"
+					echo "$RESULT"
+					echo "----------  Debug end  ----------"
+					echo ""
+				fi
+				# Check if there was a connection time out in
+				# tunnel.  If so, log this event.
+				ConnectionTimeout=`echo "$RESULT"|grep 'Tunnel connection timed out'`
+				if [ -n "$ConnectionTimeout" ]
+				then
+					if [ $DEBUG -ge 1 ]
+					then
+						TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+						echo -e "\n$TIMESTAMP Tunnel connection timed out at KNXnet/IP controller on $ip_str:$port after round $m"
+					fi
+				fi
+				# Check if there was a unexpected diconnect
+				# request.  If so, log this event also.
+				DisconnectRequest=`echo "$RESULT"|grep 'Received unexpected tunnel disconnect request'`
+				if [ -n "$DisconnectRequest" ]
+				then
+					if [ $DEBUG -ge 1 ]
+					then
+						TIMESTAMP=`date "+%Y-%m-%d %H:%M:%S"`
+						echo -e "\n$TIMESTAMP Unexpected tunnel disconnect request received from KNXnet/IP controller on $ip_str:$port while scanning target device $group.$line.$m"
+					fi
+				fi
+				# Keep care: newline and 6 spaces at the end of
+				# the match string.
+				bus_device=${RESULT##*Bus Devices: 
+      }
+				CONTENT=`echo -n "$bus_device"`
+				# Keep care: newline at the end of the match
+				# string.
+				bus_device=${bus_device%%
+*}
+				bus_device=${bus_device%%:*}
+				if [ -n "$bus_device" ]
+				then
+					if [ $DEBUG -ge 5 ] || [ -z "$DEBUG" ]
+					then
+						echo -e "\tKNX TP device $bus_device found"
+					else
+						if [ $DEBUG -ge 1 ]
+						then
+							echo -n " $bus_device "
+						fi
+					fi
+					#
+					# Add device to the device list.
+					#
+					echo -n "$bus_device," >> "$DEVICELIST"
+					#
+					# Write the device output to specific
+					# text file.
+					#
+					echo -n "$ip_str:$port $CONTENT" > "$DATAPATH/$SEARCH.$ip_str.$port.$bus_device.txt"
+				fi
+				#
+                                # Output additional line break to
+                                # device list on last round.
+                                #
+				if [ $m -eq 255 ]
+				then
+					echo "" >> "$DEVICELIST"
+				fi
+			done
+		fi
+	fi
+done

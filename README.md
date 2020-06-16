@@ -29,4 +29,4 @@ Use argument '-h' or '--help' for help on how to work with <code>csdig-knx.sh</c
 Configuration is done via file <code>csdig.conf</code>.
 
 ### Compatibility
-Tested on Kali Linux 2020.1 Release and on Ubuntu 16.04 LTS. Tested in local environment against WAGO | Controller KNX IP (750-889), Viessmann Vitogate 200, Type KNX and against knxd.
+Tested on Kali Linux 2020.1 Release and on Ubuntu 16.04 LTS. Tested in local environment against WAGO | Controller KNX IP (750-889), Viessmann Vitogate 200, type KNX and against knxd.

@@ -7,7 +7,7 @@ Currently scanning via KNXnet/IP (Tunneling) is implemented. See **csdig-knx**.
 csdig-knx is a Bash script: <code>csdig.sh</code>.
 
 ### Intention
-Scanning with csdig-knx is much more robust than scanning with KNXmap alone. Obstacles while scanning in the wild are:
+Scanning with csdig-knx is much more robust than scanning with KNXmap itself. Obstacles while scanning in the wild are:
 * Missing compatibility (not all KNXnet/IP / KNX TP devices are certified)
 * High latencies (running into timeouts)
 * Network congestions (loss of datagrams)

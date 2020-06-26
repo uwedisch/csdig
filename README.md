@@ -18,9 +18,11 @@ Scanning with csdig-knx is much more robust than scanning with KNXmap itself. Ob
 ### Requirements
 KNXmap fork found at https://github.com/uwedisch/knxmap because of several bug fixes that are currently not included in the original KNXmap.
 
-python-shodan installed with <code>sudo apt-get python-shodan</code> and an account with [Shodan](https://www.shodan.io).
+python-shodan installed with <code>sudo apt-get python-shodan</code>.
 
 csvtool installed with <code>sudo apt-get csvtool</code>.
+
+Finally you also need an account with [Shodan](https://www.shodan.io).
   
 ### Execution
 Called without any parameter csdig-knx searches on Shodan for the keyword <code>knx</code> and traverses thru all results.  Each result, i.e. KNXnet/IP (Tunneling) aware controller, is scanned for reachable KNX TP devices on it's configured KNX TP line.  Each reachable KNX TP device is also scanned.  Together all output is written to the directory <code>data</code>.

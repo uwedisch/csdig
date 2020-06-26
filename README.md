@@ -18,7 +18,7 @@ Scanning with csdig-knx is much more robust than scanning with KNXmap itself. Ob
 ### Requirements
 KNXmap fork found at https://github.com/uwedisch/knxmap because of several bug fixes that are currently not included in the original KNXmap.
 
-python-shodan installed with <code>sudo apt-get python-shodan</code>.
+python-shodan installed with <code>sudo apt-get python-shodan</code> and an account with [Shodan](https://www.shodan.io).
 
 csvtool installed with <code>sudo apt-get csvtool</code>.
   
